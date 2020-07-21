@@ -1,8 +1,10 @@
 import requests
+import os
 import json
 from uuid import getnode as get_mac
 
-endpoint = 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyD8BPZ46CIEfJg2LS1hnAsu1vWQlRHbFWw'
+api_key = os.environ.get('API_KEY')
+endpoint = 'https://www.googleapis.com/geolocation/v1/geolocate?key='+api_key
 mac = get_mac()
 mac_address = ':'.join(("%012X" % mac)[i:i+2] for i in range(0, 12, 2))
 
