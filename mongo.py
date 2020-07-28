@@ -43,7 +43,7 @@ collection = db["BlackListing"]
 #.find_one() -- returns the first one found
 
 #prints all
-#result = collection.find({})
+result = collection.find({})
 #print(type(result))
 
 ##To Delete ##

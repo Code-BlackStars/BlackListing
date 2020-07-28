@@ -2,12 +2,19 @@ from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length,Email, EqualTo
 
+
 class RegistrationForm(FlaskForm):
     username = StringField('Username',
                             validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email',
                          validators=[DataRequired(), Email()])
+
     password = PasswordField('Password', validators=[DataRequired()])
+    business = StringField('Business', validators=[DataRequired()])
+    address = StringField('Address', validators=[DataRequired()])
+    city = StringField('city', validators=[DataRequired()])
+    state = StringField('state', validators=[DataRequired()])
+    zipcode = StringField('zipcode', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
                                     validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign up')
@@ -19,3 +26,7 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember me')
     submit = SubmitField('Login')
+
+class ZipCodeForm(FlaskForm):
+    zipcode = StringField('zipcode', validators=[DataRequired()])
+    submit = SubmitField('Submit')
